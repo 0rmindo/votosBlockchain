@@ -36,11 +36,11 @@ $bloco_2 = [
 function addBlocos($bloco_novo){
     global $blockchain;
     if($blockchain == array()){
-        $bloco_novo["hash"] = hash("sha256", json_decode($bloco_novo));
+        $bloco_novo["hash"] = hash("sha256", json_encode($bloco_novo));
     }else{
         $ultimo_bloco = end($blockchain);
         $bloco_novo["hash"] = $ultimo_bloco["hash"];
-        $bloco_novo["hash"] = hash("sha256", json_decode($bloco_novo));
+        $bloco_novo["hash"] = hash("sha256", json_encode($bloco_novo));
     }
 }
 
